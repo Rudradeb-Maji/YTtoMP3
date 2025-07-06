@@ -1,3 +1,5 @@
+import axios from "axios";
+
 export async function fetchYoutubeVideoData(videoId) {
   try {
     const playerUrl = `https://www.youtube.com/youtubei/v1/player?prettyPrint=false`;
