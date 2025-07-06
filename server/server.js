@@ -7,8 +7,9 @@ import { uploadAudioToCloudinary } from "./services/uploadToCloudinary.js";
 import { deleteAudioFromCloudinary } from "./services/deleteFromCloudinary.js";
 import { extractVideoId } from "./lib/extractId.js";
 import { fetchYoutubeVideoData } from "./lib/fetchYoutubeVideoData.js";
-
+import { config } from "dotenv";
 const app = express();
+const port = process.env.PORT
 app.use(express.json());
 app.use(cors());
 
@@ -76,6 +77,6 @@ app.delete("/api/delete/:publicId", async (req, res) => {
   }
 });
 
-app.listen(5000, () => {
-  console.log("Server running on port 5000");
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
 });
