@@ -1,15 +1,13 @@
-import { exec } from "child_process";
+import ytdlp from "yt-dlp-exec";
 
-export function fetchYoutubeMetadataYTDLP(url) {
-  return new Promise((resolve, reject) => {
-    exec(`yt-dlp -j "${url}"`, (err, stdout) => {
-      if (err) return reject(err);
-      try {
-        const info = JSON.parse(stdout);
-        resolve(info);
-      } catch (parseErr) {
-        reject(parseErr);
-      }
+export async function fetchYoutubeMetadataYTDLP(url) {
+  try {
+    const info = await ytdlp(url, {
+      dumpSingleJson: true, // returns parsed JSON, no need to parse stdout
     });
-  });
+    return info;
+  } catch (err) {
+    console.error("❌ yt-dlp metadata fetch error:", err);
+    throw err;
+  }
 }
