@@ -135,7 +135,7 @@ const App = () => {
                 : "bg-gray-100 text-gray-400"
             } font-semibold rounded-lg py-3 transition text-sm`}
           >
-            {loading ? "Processing..." : "Get Video Info"}
+            {loading ? "Processing..." : "Get MP3"}
           </button>
         </form>
 
