@@ -8,7 +8,7 @@ import { deleteAudioFromCloudinary } from "./services/deleteFromCloudinary.js";
 import { extractVideoId } from "./lib/extractId.js";
 import { fetchYoutubeVideoData } from "./lib/fetchYoutubeVideoData.js";
 import { config } from "dotenv";
-import { fetchYoutubeMetadataYTDLP } from "./lib/fetchYoutubeMetadataYTDLP.js";
+import { fetchYoutubeMetadata} from "./lib/fetchYoutubeMetadataYTDLP.js";
 const app = express();
 const port = process.env.PORT
 app.use(express.json());
@@ -66,7 +66,7 @@ app.post("/api/video-info", async (req, res) => {
   if (!videoId) return res.status(400).json({ error: "Invalid YouTube URL" });
 
   try {
-    const info = await fetchYoutubeMetadataYTDLP(videoId);
+    const info = await fetchYoutubeMetadata(videoId);
     res.json(info);
   } catch (error) {
     console.error(error);
