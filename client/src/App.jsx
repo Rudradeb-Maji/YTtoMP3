@@ -19,7 +19,7 @@ const App = () => {
     setLoading(true);
 
     try {
-      const res = await axios.post("http://localhost:5000/api/video-info", {
+      const res = await axios.post("https://yttomp3-backend.onrender.com/api/video-info", {
         url: link,
       });
 
@@ -43,7 +43,7 @@ const App = () => {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/download-and-upload",
+        "https://yttomp3-backend.onrender.com/api/download-and-upload",
         { url: link }
       );
 
@@ -64,7 +64,7 @@ const App = () => {
     if (!publicId) return;
     try {
       await axios.delete(
-        `http://localhost:5000/api/delete/${encodeURIComponent(publicId)}`
+        `https://yttomp3-backend.onrender.com/api/delete/${encodeURIComponent(publicId)}`
       );
       toast.success("Audio deleted from cloud");
       setUrl("");
