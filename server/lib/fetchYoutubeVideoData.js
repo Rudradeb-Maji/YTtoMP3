@@ -21,7 +21,8 @@ export async function fetchYoutubeVideoData(videoId) {
     };
 
     const res = await axios.post(playerUrl, payload, { headers });
-
+    console.log(res.data.videoDetails); 
+    
     if (!res.data || !res.data.videoDetails) {
       console.error("❌ No videoDetails found in YT response for", videoId);
       return null;
