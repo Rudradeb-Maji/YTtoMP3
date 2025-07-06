@@ -57,6 +57,8 @@ app.post("/api/download-and-upload", async (req, res) => {
 
 app.post("/api/video-info", async (req, res) => {
   const { url } = req.body;
+  console.log(url);
+  
   if (!url) return res.status(400).json({ error: "URL is required" });
 
   const videoIdMatch = url.match(/(?:v=|\/)([0-9A-Za-z_-]{11})(?:[&?]|$)/);
