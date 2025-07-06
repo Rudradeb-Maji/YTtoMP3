@@ -11,11 +11,17 @@ import { config } from "dotenv";
 const app = express();
 const port = process.env.PORT
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: "*", // or replace * with your frontend domain for stricter control
+  methods: ["GET", "POST", "DELETE"],
+}));
 
 app.use("/downloads", express.static("downloads"));
 app.get("/", (req, res) => {
   res.send("YouTube to MP3 API is running! 🎵");
+});
+app.get("/home", (req, res) => {
+  res.send("YouTube to MP3 API is on! 🎵");
 });
 
 app.post("/api/download-and-upload", async (req, res) => {

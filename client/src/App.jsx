@@ -22,6 +22,7 @@ const App = () => {
       const res = await axios.post("https://yttomp3-backend.onrender.com/api/video-info", {
         url: link,
       });
+console.log(res);
 
       const { title, thumbnail } = res.data;
       setTitle(title);
