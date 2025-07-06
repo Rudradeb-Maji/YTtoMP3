@@ -5,6 +5,8 @@ export async function fetchYoutubeMetadataYTDLP(url) {
     const info = await ytdlp(url, {
       dumpSingleJson: true, // returns parsed JSON, no need to parse stdout
     });
+    console.log(info);
+
     return info;
   } catch (err) {
     console.error("❌ yt-dlp metadata fetch error:", err);
