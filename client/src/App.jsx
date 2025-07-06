@@ -152,7 +152,7 @@ const App = () => {
                 <motion.img
                   src={thumbnail}
                   alt="Thumbnail"
-                  className="w-64 h-40 object-cover rounded-xl shadow-lg"
+                  className="w-85  object-cover rounded-xl shadow-lg"
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6 }}
